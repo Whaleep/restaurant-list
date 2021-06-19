@@ -13,19 +13,23 @@
 
 ## 安裝 Installing
 
-1. 在終端機中移動到要安裝的目錄位置，並 Clone 此專案至本機電腦
+1. 在終端機輸入指令 Clone 此專案至本機電腦
 ```
-git clone https://github.com/Whaleep/restaurantList.git
+$ git clone https://github.com/Whaleep/restaurantList.git
 ```
-2. 安裝相關套件
+2. 進入專案目錄
 ```
-npm install
+$ cd restaurantList
 ```
-3. 啟動專案
+3. 安裝相關套件
 ```
-npm run dev
+$ npm install
 ```
-4. 出現以下訊息後，即可在 http://localhost:3000 開始使用
+4. 啟動專案
+```
+$ npm run dev
+```
+5. 出現以下訊息後，即可在 http://localhost:3000 開始使用
 ```
 Express is listening on localhost:3000
 ```
