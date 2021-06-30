@@ -1,0 +1,88 @@
+<form method="POST" action="/restaurants/{{restaurant._id}}">
+  <h1 class="mb-1 restaurant-show-title">編輯餐廳資訊</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-10 mx-auto mb-5">
+
+        <div class="row mb-1">
+          <label for="name" class="col-sm-3 col-form-label col-form-label-sm text-secondary">
+            <i class="fas fa-utensils pr-2"></i>名稱：
+          </label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control form-control-sm" placeholder="名稱..." name="name" id="name" value="{{restaurant.name}}">
+          </div>
+        </div>
+
+        <div class="row mb-1">
+          <label for="name_en" class="col-sm-3 col-form-label col-form-label-sm text-secondary">
+            <i class="fas fa-utensils pr-2"></i>英文名稱：
+          </label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control form-control-sm" placeholder="英文名稱..." name="name_en" id="name_en" value="{{restaurant.name_en}}">
+          </div>
+        </div>
+
+        <div class="row mb-1">
+          <label for="category" class="col-sm-3 col-form-label col-form-label-sm text-secondary">
+            <i class="fas fa-utensils pr-2"></i>類別：
+          </label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control form-control-sm" placeholder="類別..." name="category" id="category" value="{{restaurant.category}}">
+          </div>
+        </div>
+
+        <div class="row mb-1">
+          <label for="rating" class="col-sm-3 col-form-label col-form-label-sm text-secondary">
+            <i class="fas fa-star fa-xs pr-1"></i>評分：
+          </label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control form-control-sm" placeholder="評分..." name="rating" id="rating" value="{{restaurant.rating}}">
+          </div>
+        </div>
+
+        <div class="row mb-1">
+          <label for="location" class="col-sm-3 col-form-label col-form-label-sm text-secondary">
+            <i class="fas fa-map-marker-alt pr-2"></i>地址：
+          </label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control form-control-sm" placeholder="地址..." name="location" id="location" value="{{restaurant.location}}">
+          </div>
+        </div>
+
+        <div class="row mb-1">
+          <label for="google_map" class="col-sm-3 col-form-label col-form-label-sm text-secondary">
+            <i class="fas fa-location-arrow pr-2 fa-xs"></i>google map：
+          </label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control form-control-sm" placeholder="Google map url..." name="google_map" id="google_map" value="{{restaurant.google_map}}">
+          </div>
+        </div>
+
+        <div class="row mb-1">
+          <label for="phone" class="col-sm-3 col-form-label col-form-label-sm text-secondary">
+            <i class="fas fa-mobile-alt pr-2"></i>電話：
+          </label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control form-control-sm" placeholder="電話..." name="phone" id="phone" value="{{restaurant.phone}}">
+          </div>
+        </div>
+
+        <div class="row mb-1">
+          <label for="image" class="col-sm-3 col-form-label col-form-label-sm text-secondary">
+            <i class="fas fa-image pr-2"></i>照片：
+          </label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control form-control-sm" placeholder="照片URL..." name="image" id="image" value="{{restaurant.image}}">
+          </div>
+        </div>
+
+        <p class="mt-3 mb-5">
+          <textarea class="form-control" placeholder="描述..." name="description" rows="3">{{restaurant.description}}</textarea>
+        </p>
+
+        <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="restaurant-name" style="max-width: 600px;">
+        <button class="btn btn-outline-success" type="submit">Save</button>
+      </div>
+    </div>
+  </div>
+</form>
