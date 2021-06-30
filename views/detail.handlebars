@@ -36,9 +36,11 @@
 
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}" style="max-width: 600px;">
 
-      <div class="mb-4">
-        <a href="/restaurants/{{restaurant._id}}/edit" type="button" class="btn btn-outline-success">Edit</a>
-        <button type="button" class="btn btn-outline-danger">Delete</button>
+      <div class="d-flex mb-4">
+        <a href="/restaurants/{{restaurant._id}}/edit" type="button" class="btn btn-outline-success mr-2">Edit</a>
+        <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
+          <button type="submit" class="btn btn-outline-danger">Delete</button>
+        </form>
       </div>
     </div>
   </div>
