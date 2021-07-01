@@ -1,4 +1,4 @@
-<form method="POST" action="/restaurants">
+<form method="POST" action="/restaurants" class="needs-validation" novalidate>
   <h1 class="mb-1 restaurant-show-title">新增餐廳</h1>
   <div class="container">
     <div class="row">
@@ -9,7 +9,8 @@
             <i class="fas fa-utensils pr-2"></i>名稱：
           </label>
           <div class="col-sm-7">
-            <input type="text" class="form-control form-control-sm" placeholder="名稱..." name="name" id="name" value="新餐廳">
+            <input type="text" class="form-control form-control-sm" placeholder="名稱..." name="name" id="name" value="新餐廳" required>
+            <div class="invalid-feedback">Name is required.</div>
           </div>
         </div>
 
@@ -36,8 +37,7 @@
             <i class="fas fa-star fa-xs pr-1"></i>評分：
           </label>
           <div class="col-sm-7">
-            <input type="text" class="form-control form-control-sm" placeholder="評分..." name="rating" id="rating"
-              value="4.5">
+            <input type="number" class="form-control form-control-sm" placeholder="評分..." name="rating" id="rating" step="0.1" value="4.5">
           </div>
         </div>
 
@@ -46,8 +46,7 @@
             <i class="fas fa-map-marker-alt pr-2"></i>地址：
           </label>
           <div class="col-sm-7">
-            <input type="text" class="form-control form-control-sm" placeholder="地址..." name="location" id="location"
-              value="新餐廳的地址">
+            <input type="text" class="form-control form-control-sm" placeholder="地址..." name="location" id="location" value="新餐廳的地址">
           </div>
         </div>
 
@@ -56,7 +55,8 @@
             <i class="fas fa-location-arrow pr-2 fa-xs"></i>google map：
           </label>
           <div class="col-sm-7">
-            <input type="text" class="form-control form-control-sm" placeholder="Google map url..." name="google_map" id="google_map" value="https://www.google.com.tw/maps/">
+            <input type="url" class="form-control form-control-sm" placeholder="Google map url..." name="google_map" id="google_map" value="https://www.google.com.tw/maps/">
+            <div class="invalid-feedback">URL format required.</div>
           </div>
         </div>
 
@@ -74,8 +74,8 @@
             <i class="fas fa-image pr-2"></i>照片：
           </label>
           <div class="col-sm-7">
-            <input type="text" class="form-control form-control-sm" placeholder="照片URL..." name="image" id="image"
-              value="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg">
+            <input type="url" class="form-control form-control-sm" placeholder="照片URL..." name="image" id="image" value="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg">
+            <div class="invalid-feedback">URL format required.</div>
           </div>
         </div>
 
@@ -83,9 +83,10 @@
           <textarea class="form-control" placeholder="描述..." name="description" rows="3">新餐廳的描述</textarea>
         </p>
 
-        {{!-- <img class="rounded mx-auto d-block mb-4 w-100" src="#restaurant-image" alt="restaurant-name" style="max-width: 600px;"> --}}
+        <img class="rounded mx-auto d-block mb-4 w-100" src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg" alt="image" id="imagePreviewBlock" style="max-width: 600px">
         <button class="btn btn-outline-success" type="submit">Create</button>
       </div>
     </div>
   </div>
 </form>
+<script src="/javascripts/restaurants.js"></script>

@@ -21,7 +21,6 @@ db.once('open', () => {
 
 // require handlebars in the project
 const exphbs = require('express-handlebars')
-//const restaurantList = require('./restaurant.json')
 
 // experess template engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
@@ -30,9 +29,10 @@ app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: true }))
 
 // setting static files
-app.use(express.static('static'))
+app.use(express.static('public'))
 
 // routes setting
+// root: index
 app.get('/', (req, res) => {
   Restaurant.find()
     .lean()
@@ -53,7 +53,7 @@ app.get('/search', (req, res) => {
         res.render('index', { keyword: req.query.keyword, no_result: '<h3>搜尋沒有結果</h3>' })
       }
     })
-      .catch(error => console.log(error))
+    .catch(error => console.log(error))
 })
 
 // create
@@ -96,7 +96,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//delete
+// delete
 app.post('/restaurants/:id/delete', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
