@@ -43,18 +43,17 @@ app.get('/', (req, res) => {
 
 // querystring
 app.get('/search', (req, res) => {
-  const restaurants = restaurantList.results.filter(function (restaurant) {
-    const keyword = req.query.keyword.trim().toLowerCase()
-    return restaurant.name.toLowerCase().includes(keyword) || restaurant.category.toLowerCase().includes(keyword)
-  })
-
-  if (restaurants.length > 0) {
-    res.render('index', { restaurants: restaurants, keyword: req.query.keyword.trim() })
-  }
-  else {
-    res.render('index', { keyword: req.query.keyword, no_result: '<h3>搜尋沒有結果</h3>' })
-  }
-
+  const keyword = new RegExp(req.query.keyword.trim(), 'i')
+  Restaurant.find({ $or: [{ name: keyword }, { category: keyword }] })
+    .lean()
+    .then(function (restaurants) {
+      if (restaurants.length > 0) {
+        res.render('index', { restaurants: restaurants, keyword: req.query.keyword.trim() })
+      } else {
+        res.render('index', { keyword: req.query.keyword, no_result: '<h3>搜尋沒有結果</h3>' })
+      }
+    })
+      .catch(error => console.log(error))
 })
 
 // create
