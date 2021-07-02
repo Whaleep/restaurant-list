@@ -54,10 +54,6 @@ header {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card img{
-  height: 180px;
-}
-
 .card-title{
   overflow:hidden;
   text-overflow:ellipsis;
@@ -74,28 +70,37 @@ header {
   top: -100px;
   color: white;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-@media screen and (max-width: 992px) {
-  
+/* modify */
+
+.card img{
+    height: auto;
+}
+
+@media screen and (min-width: 768px) {
+
   .card img{
     height: 115px;
   }
-}
 
-@media screen and (max-width: 768px) {
-  
   .restaurant-show-title {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (min-width: 992px) {
   
   .card img{
-    height: auto;
+    height: 180px;
   }
+}
+
+@media screen and (min-width: 1200px){
   
+  .container {
+      max-width: 1140px;
+  }
 }

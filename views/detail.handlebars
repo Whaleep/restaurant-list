@@ -1,7 +1,7 @@
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-10 mx-auto">
+    <div class="col-12 col-md-10 mx-auto" id="data-panel">
 
       <p class="mb-1">
         <span class="text-secondary">
@@ -34,14 +34,15 @@
         {{restaurant.description}}
       </p>
 
-      <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}" style="max-width: 600px;">
+      <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}" id="imagePreviewBlock" style="max-width: 600px;">
 
       <div class="d-flex mb-4">
-        <a href="/restaurants/{{restaurant._id}}/edit" type="button" class="btn btn-outline-success mr-2">Edit</a>
+        <a href="/restaurants/{{restaurant._id}}/edit" type="button" class="btn btn-outline-success me-2">Edit</a>
         <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
-          <button type="submit" class="btn btn-outline-danger">Delete</button>
+          <button type="button" class="btn btn-outline-danger btn-delete">Delete</button>
         </form>
       </div>
     </div>
   </div>
 </div>
+<script src="/javascripts/index.js"></script>
