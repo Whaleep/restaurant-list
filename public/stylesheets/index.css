@@ -104,3 +104,7 @@ header {
       max-width: 1140px;
   }
 }
+
+a {
+  text-decoration: none;
+}
