@@ -38,7 +38,7 @@
 
       <div class="d-flex mb-4">
         <a href="/restaurants/{{restaurant._id}}/edit" type="button" class="btn btn-outline-success me-2">Edit</a>
-        <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
+        <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST">
           <button type="button" class="btn btn-outline-danger btn-delete">Delete</button>
         </form>
       </div>

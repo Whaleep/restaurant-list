@@ -1,5 +1,6 @@
 // require package used in the project
 const express = require('express')
+const methodOverride = require('method-override')
 const app = express()
 const port = 3000
 const Restaurant = require('./models/restaurant')
@@ -28,6 +29,7 @@ app.set('view engine', 'handlebars')
 
 app.use(express.urlencoded({ extended: true }))
 
+app.use(methodOverride('_method'))
 // setting static files
 app.use(express.static('public'))
 
@@ -85,7 +87,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => {
@@ -97,7 +99,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 // delete
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())
