@@ -1,18 +1,32 @@
 <!-- search bar -->
 <div class="container search-bar">
-  <div class="search-bar-outer">
-    <div class="search-bar-inner">
-      <form action="/search">
-        <h4 class="mb-2">尋找餐廳：</h4>
-        <div class="input-group">
-          <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..." value="{{keyword}}" aria-describedby="search-button">
-          <div class="input-group-append">
-            <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
-          </div>
-        </div>
-      </form>
+  <form action="/search" class="search-bar-outer row" id="search-bar">
+
+    <div class="search-bar-inner col-md-8">
+      <h4 class="mb-2">尋找餐廳：</h4>
+      <div class="input-group">
+        <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..." value="{{query.keyword}}" aria-describedby="search-button">
+        <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+      </div>
     </div>
-  </div>
+
+    <div class="search-bar-inner col-md-4">
+      <label for="sort">
+        <h4 class="mb-2">Sort</h4>
+      </label>
+      <div class="input-group">
+        <select id="sort" name="sort" class="form-select">
+          <option value="_id" selected>新增時間</option>
+          <option value="nameAsc">A->Z</option>
+          <option value="nameDesc">Z->A</option>
+          <option value="category">類別</option>
+          <option value="location">地區</option>
+          <option value="rating">最高評分</option>
+        </select>
+      </div>
+    </div>
+
+  </form>
 </div>
 
 <!-- restaurant list -->
@@ -49,4 +63,9 @@
   </div>
 </div>
 
+<script>
+  const sort = document.querySelector('#sort')
+  sort.value = "{{query.sort}}"
+  sort.addEventListener('change', ()=> document.querySelector('#search-bar').submit())
+</script>
 <script src="/javascripts/index.js"></script>
