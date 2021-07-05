@@ -53,3 +53,8 @@ router.delete('/:id', (req, res) => {
 })
 
 module.exports = router
+
+// note
+// 加在含有 :id 的 router ，可以在 id 無效時導回首頁。id 有效指英數剛好24字符。
+// if (!mongoose.Types.ObjectId.isValid(id)) return res.redirect('back')
+

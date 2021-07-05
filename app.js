@@ -9,7 +9,10 @@ const app = express()
 const port = 3000
 
 // experess template engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main'
+  // helpers: { isEqual, notDEMO, toImage }
+}))
 app.set('view engine', 'handlebars')
 
 app.use(express.urlencoded({ extended: true }))
