@@ -11,17 +11,14 @@
     </div>
 
     <div class="search-bar-inner col-md-4">
-      <label for="sort">
+      <label for="sortBy">
         <h4 class="mb-2">Sort</h4>
       </label>
       <div class="input-group">
-        <select id="sort" name="sort" class="form-select">
-          <option value="_id" selected>新增時間</option>
-          <option value="nameAsc">A->Z</option>
-          <option value="nameDesc">Z->A</option>
-          <option value="category">類別</option>
-          <option value="location">地區</option>
-          <option value="rating">最高評分</option>
+        <select id="sortBy" name="sortBy" class="form-select">
+          {{#each sortList}}
+          <option value="{{this.value}}" {{#if (isEqual this.value query.sortBy)}} selected {{/if}}>{{this.title}}</option>
+          {{/each}}
         </select>
       </div>
     </div>
@@ -63,9 +60,7 @@
   </div>
 </div>
 
-<script>
-  const sort = document.querySelector('#sort')
-  sort.value = "{{query.sort}}"
-  sort.addEventListener('change', ()=> document.querySelector('#search-bar').submit())
-</script>
 <script src="/javascripts/index.js"></script>
+<script>
+  sortBy.value = '{{query.sortBy}}' || '_id'
+</script>

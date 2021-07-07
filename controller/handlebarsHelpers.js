@@ -13,4 +13,4 @@ function notDEMO(userType) {
   return userType !== 'DEMO'
 }
 
-module.exports = { isEqual, toImage, notDEMO }
+module.exports = isEqual

@@ -4,14 +4,14 @@ const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const routes = require('./routes')
 require('./config/mongoose')
-
 const app = express()
 const port = 3000
 
 // experess template engine
+const isEqual = require('./controller/handlebarsHelpers')
 app.engine('handlebars', exphbs({
-  defaultLayout: 'main'
-  // helpers: { isEqual, notDEMO, toImage }
+  defaultLayout: 'main',
+  helpers: { isEqual }
 }))
 app.set('view engine', 'handlebars')
 

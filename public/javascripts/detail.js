@@ -6,9 +6,3 @@ dataPanel.addEventListener('click', function (event) {
     if (confirm('確定要刪除嗎？') === true) event.target.parentElement.submit()
   }
 })
-
-// sortBy event listener
-const sortBy = document.querySelector('#sortBy')
-sortBy.addEventListener('change', () => document.querySelector('#search-bar').submit())
-// set sortBy.value in index.handlebars
-// sortBy.value = '{{query.sortBy}}' || '_id'

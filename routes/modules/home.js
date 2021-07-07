@@ -3,30 +3,56 @@ const router = express.Router()
 
 const Restaurant = require('../../models/restaurant')
 
+const sortList = {
+  _id: {
+    value: '_id',
+    title: '新增時間',
+    mongoose: { _id: 'asc' }
+  },
+  nameAsc: {
+    value: 'nameAsc',
+    title: 'A->Z',
+    mongoose: { name_en: 'asc' }
+  },
+  nameDesc: {
+    value: 'nameDesc',
+    title: 'Z->A',
+    mongoose: { name_en: 'desc' }
+  },
+  category: {
+    value: 'category',
+    title: '類別',
+    mongoose: { category: 'asc' }
+  },
+  location: {
+    value: 'location',
+    title: '地區',
+    mongoose: { location: 'asc' }
+  },
+  rating: {
+    value: 'rating',
+    title: '最高評分',
+    mongoose: { rating: 'desc' }
+  }
+}
+
 router.get('/', (req, res) => {
   Restaurant.find()
     .lean()
     .sort({ _id: 'asc' })
-    .then(restaurants => res.render('index', { restaurants, sort: "_id"}))
+    .then(restaurants => res.render('index', { restaurants, sortList }))
     .catch(error => console.log(error))
 })
 
 router.get('/search', (req, res) => {
   const keyword = new RegExp(req.query.keyword.trim(), 'i')
-  const sortList = {
-    "_id": { _id: 'asc' },
-    "nameAsc": { name_en: 'asc' },
-    "nameDesc": { name_en: 'desc' },
-    "category": { category: 'asc' },
-    "location": { location: 'asc' },
-    "rating": { rating: 'desc' }
-  }
+
   Restaurant.find({ $or: [{ name: keyword }, { category: keyword }] })
     .lean()
-    .sort(sortList[req.query.sort])
+    .sort(sortList[req.query.sortBy].mongoose)
     .then(function (restaurants) {
       if (restaurants.length > 0) {
-        res.render('index', { restaurants: restaurants, query: req.query })
+        res.render('index', { restaurants, sortList, query: req.query })
       } else {
         res.render('index', { no_result: '<h3>搜尋沒有結果</h3>', query: req.query })
       }
