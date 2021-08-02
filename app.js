@@ -1,8 +1,10 @@
 // require package used in the project
 const express = require('express')
+const session = require('express-session')
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const routes = require('./routes')
+const usePassport = require('./config/passport')
 require('./config/mongoose')
 const app = express()
 const port = 3000
@@ -15,10 +17,18 @@ app.engine('handlebars', exphbs({
 }))
 app.set('view engine', 'handlebars')
 
+app.use(express.static('public'))
+
+app.use(session({
+  secret: 'ThisIsMySecret',
+  resave: false,
+  saveUninitialized: true
+}))
+
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+usePassport(app)
 app.use(routes)
-app.use(express.static('public'))
 
 // start and listen on the Express server
 app.listen(port, () => {
