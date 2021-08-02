@@ -3,6 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-10 mx-auto mb-5">
+        <button class="btn btn-outline-success mb-4" type="submit">Save</button>
 
         <div class="row mb-1">
           <label for="name" class="col-sm-3 col-form-label col-form-label-sm text-secondary">
@@ -83,7 +84,7 @@
           <textarea class="form-control" placeholder="描述..." name="description" rows="3">{{restaurant.description}}</textarea>
         </p>
 
-        <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="restaurant-image" id="imagePreviewBlock" style="max-width: 600px;" onerror="this.classList.add('error');">
+        <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="restaurant-image" id="imagePreviewBlock" style="max-width: 600px;">
         <button class="btn btn-outline-success" type="submit">Save</button>
       </div>
     </div>

@@ -37,7 +37,7 @@ const sortList = {
 }
 
 router.get('/', (req, res) => {
-  Restaurant.find()
+  Restaurant.find({ userId: req.user._id })
     .lean()
     .sort({ _id: 'asc' })
     .then(restaurants => res.render('index', { restaurants, sortList }))
