@@ -3,7 +3,7 @@
     <div class="col-md-6 m-auto">
       <div class="card card-body users-bar">
         <h1 class="text-center mt-3">Register</h1>
-
+        {{> message}}
         <form action="/users/register" method="POST">
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
@@ -17,11 +17,11 @@
 
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" value="{{ Password }}">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" value="{{ password }}">
           </div>
 
           <div class="mb-3">
-            <label for="confirmPassword" class="form-label">Password</label>
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
             <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" value="{{ confirmPassword }}">
           </div>
 

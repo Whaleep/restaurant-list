@@ -3,7 +3,7 @@
     <div class="col-md-6 m-auto">
       <div class="card card-body users-bar">
         <h1 class="text-center mt-3">Login</h1>
-
+        {{> message}}
         <form action="/users/login" method="POST">
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -14,7 +14,7 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password">
           </div>
-          
+
           <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary">Login</button>
           </div>
