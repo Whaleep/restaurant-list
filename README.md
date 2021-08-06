@@ -16,27 +16,25 @@
 
 ## 安裝 Installing
 
-1. 在終端機輸入指令 Clone 此專案至本機電腦
+1. 在終端機輸入指令 Clone 此專案至本機電腦，並安裝相關套件
 ```
 git clone https://github.com/Whaleep/restaurant-list
-```
-2. 進入專案目錄
-```
 cd restaurant-list
-```
-3. 安裝相關套件
-```
 npm install
 ```
-4. 新增種子資料
+2. 設定環境變數檔案，將檔案 .env.example 檔名改為 .env。  
+若要使用 facebook login ，則需要先在 [Facebook for Developers](https://developers.facebook.com/) 中建立應用程式，將應用程式編號和密鑰填入 .env，即可使用 facebook login 功能。
+
+3. 新增種子資料
 ```
 npm run seed
 ```
-5. 啟動專案
+4. 啟動專案
 ```
 npm run dev
 ```
-6. 出現以下訊息後，即可在 http://localhost:3000 開始使用
+
+5. 出現以下訊息後，即可在 http://localhost:3000 開始使用
 ```
 Express is listening on localhost:3000
 ```

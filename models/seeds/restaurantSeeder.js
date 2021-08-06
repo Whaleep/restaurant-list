@@ -23,8 +23,8 @@ const SEED_USERS = [
 ]
 
 db.once('open', () => {
-  Promise.all(SEED_USERS.map(async SEED_USER => {
-    await bcrypt.genSalt(10)
+  Promise.all(SEED_USERS.map(SEED_USER => 
+    bcrypt.genSalt(10)
       .then(salt => bcrypt.hash(SEED_USER.password, salt))
       .then(hash => User.create({
         name: SEED_USER.name,
@@ -36,7 +36,7 @@ db.once('open', () => {
         restaurants.forEach(restaurant => { restaurant.userId = user._id })
         return Restaurant.create(restaurants)
       })
-  }))
+  ))
     .then(() => {
       console.log('done.')
       process.exit()
