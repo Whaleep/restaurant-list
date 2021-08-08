@@ -47,7 +47,7 @@ router.get('/', (req, res) => {
 router.get('/search', (req, res) => {
   const keyword = new RegExp(req.query.keyword.trim(), 'i')
 
-  Restaurant.find({ $or: [{ name: keyword }, { category: keyword }] })
+  Restaurant.find({ $or: [{ name: keyword }, { category: keyword }], userId: req.user._id })
     .lean()
     .sort(sortList[req.query.sortBy].mongoose)
     .then(function (restaurants) {

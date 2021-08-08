@@ -50,9 +50,9 @@ Express is listening on localhost:3000
 ## 版本階段 Version
 
 在終端機輸入指令切換到對應進度
-- v1 學期2-3 A3進度
-- v2 學期2-3 A6進度
-- v3 學期2-3 A8進度
+- v1 學期2-3(2020) A3進度
+- v2 學期2-3(2020) A6進度
+- v3 學期2-3(2020) A8進度
 - v4 學期3後 A1進度
 ```
 git checkout v1
